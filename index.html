@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un1fy | Absolute Automation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Un1fy Logo" style="height: 42px; vertical-align: middle;">
+                <span>Un1fy</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Tech</a></li>
+                <li><a href="#pricing">Tiers</a></li>
+                <li><a href="#github" class="btn-primary">Get App</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content reveal">
+                <h1>Scale Without <span>Limits</span></h1>
+                <p>The premium lead engine for elite entrepreneurs. <br>Automate SMS, extract leads, and dominate your market.</p>
+                <div class="hero-btns">
+                    <a href="#pricing" class="btn-primary">Choose Your Tier</a>
+                    <a href="#features" class="btn-outline">The Engine</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-card reveal">
+                    <span class="icon">⚡</span>
+                    <h3>Instant Reach</h3>
+                    <p>Personalized SMS automation that triggers the second a lead lands.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <span class="icon">⛏</span>
+                    <h3>Deep Scan</h3>
+                    <p>Proprietary extraction logic that pulls emails from any business site.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <span class="icon">🔒</span>
+                    <h3>Secure Ops</h3>
+                    <p>Machine-locked licensing and HMAC security for total operation protection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>The Tiers</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card reveal">
+                    <div class="tier">Free</div>
+                    <div class="price">$0</div>
+                    <ul class="tier-features">
+                        <li>5 Emails (Lifetime)</li>
+                        <li>2 Extractions (Lifetime)</li>
+                        <li>Standard Logic</li>
+                    </ul>
+                    <a href="#" class="btn-outline">Claim Tier</a>
+                </div>
+                <div class="pricing-card featured reveal">
+                    <div class="pop">Elite Choice</div>
+                    <div class="tier">Pro</div>
+                    <div class="price">$29<span>/mo</span></div>
+                    <ul class="tier-features">
+                        <li>15 Emails / month</li>
+                        <li>10 Extractions / month</li>
+                        <li>Reset Dashboard</li>
+                    </ul>
+                    <a href="#" class="btn-primary" style="width: 100%; text-align: center;">Go Pro</a>
+                </div>
+                <div class="pricing-card reveal">
+                    <div class="tier">Elite</div>
+                    <div class="price">$79<span>/mo</span></div>
+                    <ul class="tier-features">
+                        <li>50 Emails / month</li>
+                        <li>50 Extractions / month</li>
+                        <li>Priority Access</li>
+                    </ul>
+                    <a href="#" class="btn-outline">Get Elite</a>
+                </div>
+                <div class="pricing-card reveal">
+                    <div class="tier">Unlimited</div>
+                    <div class="price">$149<span>/mo</span></div>
+                    <ul class="tier-features">
+                        <li>100 Emails / run</li>
+                        <li>50 Extractions / run</li>
+                        <li>No Cooldowns</li>
+                    </ul>
+                    <a href="#" class="btn-outline">Go Unlimited</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 UN1FY. Designed for performance.</p>
+                <div class="socials">
+                    <a href="#">Contact</a>
+                    <a href="#">Legal</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.navbar');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+    </script>
+</body>
+</html>
