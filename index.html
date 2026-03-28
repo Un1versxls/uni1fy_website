@@ -3,23 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Un1fy | Absolute Automation</title>
+    <title>Un1fy | Lead & SMS Engine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="accent-glow" style="top: -10%; right: -5%;"></div>
+    <div class="accent-glow" style="bottom: 10%; left: -5%; width: 30vw;"></div>
+
     <nav class="navbar">
         <div class="container">
             <a href="#" class="logo">
-                <img src="logo.png" alt="Un1fy Logo" style="height: 42px; vertical-align: middle;">
+                <img src="logo.png" alt="Un1fy Logo" style="height: 38px; vertical-align: middle;">
                 <span>Un1fy</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#features">Tech</a></li>
+                <li><a href="#features">Engine</a></li>
                 <li><a href="#pricing">Tiers</a></li>
-                <li><a href="#github" class="btn-primary">Get App</a></li>
+                <li>
+                    <div class="magnetic-wrap">
+                        <a href="#github" class="btn btn-primary magnetic">Get Suite</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
@@ -27,11 +34,15 @@
     <header class="hero">
         <div class="container">
             <div class="hero-content reveal">
-                <h1>Scale Without <span>Limits</span></h1>
-                <p>The premium lead engine for elite entrepreneurs. <br>Automate SMS, extract leads, and dominate your market.</p>
-                <div class="hero-btns">
-                    <a href="#pricing" class="btn-primary">Choose Your Tier</a>
-                    <a href="#features" class="btn-outline">The Engine</a>
+                <h1>Scale Your <span>Outreach</span></h1>
+                <p>The premium infrastructure for direct lead generation. Automate every touchpoint, mine any data source, and dominate your niche.</p>
+                <div class="hero-btns" style="display: flex; gap: 1rem; justify-content: center;">
+                    <div class="magnetic-wrap">
+                        <a href="#pricing" class="btn btn-primary magnetic">View Tiers</a>
+                    </div>
+                    <div class="magnetic-wrap">
+                        <a href="#features" class="btn btn-outline magnetic">System Specs</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -40,20 +51,23 @@
     <section id="features" class="features">
         <div class="container">
             <div class="feature-grid">
+                <!-- FEATURE 1: EXCAVATOR -->
                 <div class="feature-card reveal">
-                    <span class="icon">⚡</span>
+                    <span>01</span>
+                    <h3>Lead Excavator</h3>
+                    <p>Stop manual lead hunting. Our excavator mines direct emails from any business domain, validating contact data in real-time. Build a 1,000+ lead list in minutes, perfectly formatted for your CRM or Google Sheets.</p>
+                </div>
+                <!-- FEATURE 2: SMS REACH -->
+                <div class="feature-card reveal">
+                    <span>02</span>
                     <h3>Instant Reach</h3>
-                    <p>Personalized SMS automation that triggers the second a lead lands.</p>
+                    <p>Auto-response SMS that triggers the second a lead is found. 24-hour follow-up loops ensure you're the first to respond, converting cold interest into warm deals while you're offline. 10x higher response rates, zero manual effort.</p>
                 </div>
-                <div class="feature-card reveal">
-                    <span class="icon">⛏</span>
-                    <h3>Deep Scan</h3>
-                    <p>Proprietary extraction logic that pulls emails from any business site.</p>
-                </div>
-                <div class="feature-card reveal">
-                    <span class="icon">🔒</span>
-                    <h3>Secure Ops</h3>
-                    <p>Machine-locked licensing and HMAC security for total operation protection.</p>
+                <!-- FEATURE 3: SECURE OPS -->
+                <div class="feature-card reveal" style="grid-column: span 2;">
+                    <span>03</span>
+                    <h3>Secure Infrastructure</h3>
+                    <p>Enterprise-grade HMAC encryption and machine-locked state storage. Your licenses, quotas, and automation data are bound to your hardware—tamper-proof and elite-only.</p>
                 </div>
             </div>
         </div>
@@ -61,9 +75,6 @@
 
     <section id="pricing" class="pricing">
         <div class="container">
-            <div class="section-header reveal">
-                <h2>The Tiers</h2>
-            </div>
             <div class="pricing-grid">
                 <div class="pricing-card reveal">
                     <div class="tier">Free</div>
@@ -71,64 +82,50 @@
                     <ul class="tier-features">
                         <li>5 Emails (Lifetime)</li>
                         <li>2 Extractions (Lifetime)</li>
-                        <li>Standard Logic</li>
                     </ul>
-                    <a href="#" class="btn-outline">Claim Tier</a>
+                    <a href="#" class="btn btn-outline">Start Free</a>
                 </div>
                 <div class="pricing-card featured reveal">
-                    <div class="pop">Elite Choice</div>
                     <div class="tier">Pro</div>
                     <div class="price">$29<span>/mo</span></div>
                     <ul class="tier-features">
-                        <li>15 Emails / month</li>
-                        <li>10 Extractions / month</li>
-                        <li>Reset Dashboard</li>
+                        <li>15 Emails / Month</li>
+                        <li>10 Extractions / Month</li>
                     </ul>
-                    <a href="#" class="btn-primary" style="width: 100%; text-align: center;">Go Pro</a>
+                    <a href="#" class="btn btn-primary" style="display: block;">Go Pro</a>
                 </div>
                 <div class="pricing-card reveal">
                     <div class="tier">Elite</div>
                     <div class="price">$79<span>/mo</span></div>
                     <ul class="tier-features">
-                        <li>50 Emails / month</li>
-                        <li>50 Extractions / month</li>
-                        <li>Priority Access</li>
+                        <li>50 Emails / Month</li>
+                        <li>50 Extractions / Month</li>
                     </ul>
-                    <a href="#" class="btn-outline">Get Elite</a>
+                    <a href="#" class="btn btn-outline">Get Elite</a>
                 </div>
                 <div class="pricing-card reveal">
                     <div class="tier">Unlimited</div>
                     <div class="price">$149<span>/mo</span></div>
                     <ul class="tier-features">
-                        <li>100 Emails / run</li>
-                        <li>50 Extractions / run</li>
-                        <li>No Cooldowns</li>
+                        <li>100 Emails / Run</li>
+                        <li>50 Extractions / Run</li>
                     </ul>
-                    <a href="#" class="btn-outline">Go Unlimited</a>
+                    <a href="#" class="btn btn-outline">Go Unlimited</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2026 UN1FY. Designed for performance.</p>
-                <div class="socials">
-                    <a href="#">Contact</a>
-                    <a href="#">Legal</a>
-                </div>
+    <footer class="footer" style="padding: 6rem 0; border-top: 1px solid var(--border);">
+        <div class="container" style="display: flex; justify-content: space-between; color: var(--dim); font-size: 0.8rem;">
+            <p>&copy; 2026 UN1FY. Built for high-performance automation.</p>
+            <div style="display: flex; gap: 2rem;">
+                <a href="#" style="color: var(--dim); text-decoration: none;">Contact</a>
+                <a href="#" style="color: var(--dim); text-decoration: none;">Status</a>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.navbar');
-            if (window.scrollY > 50) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-        });
-    </script>
 </body>
 </html>

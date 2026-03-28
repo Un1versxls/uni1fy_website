@@ -1,35 +1,55 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Scroll Reveal Animation
+    // 1. MAGNETIC BUTTON PHYSICS
+    const magneticBtns = document.querySelectorAll('.magnetic-wrap');
+    
+    magneticBtns.forEach(wrap => {
+        const btn = wrap.querySelector('.magnetic');
+        
+        wrap.addEventListener('mousemove', (e) => {
+            const rect = wrap.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            // Move the button towards the cursor (physics-based attraction)
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        
+        wrap.addEventListener('mouseleave', () => {
+            // Snap back
+            btn.style.transform = `translate(0px, 0px)`;
+        });
+    });
+
+    // 2. REVEAL ON SCROLL (STAGGERED)
     const reveals = document.querySelectorAll('.reveal');
     
-    const revealOnScroll = () => {
-        const triggerBottom = window.innerHeight * 0.9;
-        
-        reveals.forEach(reveal => {
-            const revealTop = reveal.getBoundingClientRect().top;
-            
-            if (revealTop < triggerBottom) {
-                reveal.classList.add('active');
-            }
-        });
+    const revealOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
     };
 
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Initial check
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, revealOptions);
 
-    // Navbar Background Change on Scroll
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // 3. NAVBAR SCROLL EFFECT
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(10, 10, 11, 0.95)';
-            navbar.style.padding = '1rem 0';
+        if (window.scrollY > 80) {
+            navbar.classList.add('scrolled');
         } else {
-            navbar.style.background = 'rgba(10, 10, 11, 0.8)';
-            navbar.style.padding = '1.5rem 0';
+            navbar.classList.remove('scrolled');
         }
     });
 
-    // Smooth Scroll for Navigation
+    // 4. SMOOTH ANCHOR LINKS
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
