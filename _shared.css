@@ -1,0 +1,37 @@
+:root {
+    --bg: #050505;
+    --fg: #FFFFFF;
+    --dim: #888888;
+    --accent: hsl(280, 100%, 70%);
+    --accent-dim: hsla(280, 100%, 70%, 0.1);
+    --border: rgba(255, 255, 255, 0.08);
+    --glass: rgba(255, 255, 255, 0.02);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: 'Inter', sans-serif; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 800; letter-spacing: -0.04em; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+.page-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 2rem 1.5rem; border-bottom: 1px solid var(--border);
+    max-width: 100%; background: rgba(5,5,5,0.8); backdrop-filter: blur(20px);
+    position: sticky; top: 0; z-index: 100;
+}
+.page-nav .logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.5rem; color: #FFF; }
+.page-nav .logo span { color: var(--accent); }
+.back-link { color: var(--dim); font-size: 0.85rem; font-weight: 600; }
+.back-link:hover { color: #FFF; text-decoration: none; }
+.page-body { padding: 6rem 1.5rem; }
+.page-title { font-size: 4rem; margin-bottom: 1rem; }
+.page-sub { color: var(--dim); font-size: 1.2rem; margin-bottom: 4rem; }
+.card { background: var(--glass); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; margin-bottom: 1.5rem; }
+.card h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+.card p { color: var(--dim); line-height: 1.7; }
+.btn { display: inline-block; padding: 0.9rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem; transition: 0.2s; cursor: pointer; }
+.btn-white { background: #FFF; color: #000; }
+.btn-white:hover { opacity: 0.85; text-decoration: none; }
+.btn-outline { border: 1px solid var(--border); color: #FFF; }
+.btn-outline:hover { border-color: var(--accent); text-decoration: none; }
+.footer { padding: 3rem 1.5rem; border-top: 1px solid var(--border); color: var(--dim); font-size: 0.8rem; display: flex; justify-content: space-between; }

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un1fy | System Status</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="_shared.css">
+    <style>
+        .status-row { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); }
+        .status-row:last-child { border-bottom: none; }
+        .status-name { font-weight: 600; font-size: 0.95rem; }
+        .badge { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; }
+        .dot.green { background: #10B981; box-shadow: 0 0 8px #10B981; animation: blink 2s infinite; }
+        .dot.yellow { background: #F59E0B; }
+        .dot.red { background: #EF4444; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .summary-banner { background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+        .summary-banner h3 { font-size: 1.2rem; margin-bottom: 0.2rem; }
+        .summary-banner p { color: var(--dim); font-size: 0.9rem; }
+        .uptime-bar { display: flex; gap: 3px; margin-top: 1rem; }
+        .uptime-bar span { flex: 1; height: 28px; border-radius: 4px; background: #10B981; opacity: 0.7; }
+        .uptime-bar span.down { background: #EF4444; }
+    </style>
+</head>
+<body>
+    <nav class="page-nav">
+        <a href="index.html" class="logo">Un1fy<span>.</span></a>
+        <a href="index.html" class="back-link">← Back home</a>
+    </nav>
+    <div class="page-body">
+        <div class="container">
+            <h1 class="page-title">📡 System Status</h1>
+            <p class="page-sub">Real-time operational overview.</p>
+
+            <div class="summary-banner">
+                <span style="font-size: 2rem;">✅</span>
+                <div>
+                    <h3>All Systems Operational</h3>
+                    <p>Last checked: <span id="time"></span></p>
+                </div>
+            </div>
+
+            <div class="card" style="padding: 0;">
+                <div class="status-row">
+                    <div class="status-name">📧 Email Automation Engine</div>
+                    <span class="badge"><span class="dot green"></span> Operational</span>
+                </div>
+                <div class="status-row">
+                    <div class="status-name">⛏ Lead Excavator API</div>
+                    <span class="badge"><span class="dot green"></span> Operational</span>
+                </div>
+                <div class="status-row">
+                    <div class="status-name">💬 SMS Auto-Response</div>
+                    <span class="badge"><span class="dot green"></span> Operational</span>
+                </div>
+                <div class="status-row">
+                    <div class="status-name">🔐 License & Auth Service</div>
+                    <span class="badge"><span class="dot green"></span> Operational</span>
+                </div>
+                <div class="status-row">
+                    <div class="status-name">📊 Google Sheets Connector</div>
+                    <span class="badge"><span class="dot green"></span> Operational</span>
+                </div>
+            </div>
+
+            <h3 style="margin: 3rem 0 1rem;">90-Day Uptime</h3>
+            <div class="uptime-bar" id="uptime-bar"></div>
+            <p style="color: var(--dim); font-size: 0.8rem; margin-top: 0.5rem;">99.9% uptime — <span style="color: #10B981;">Excellent</span></p>
+
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2026 UN1FY</p>
+        <a href="index.html">← Back home</a>
+    </footer>
+    <script>
+        document.getElementById('time').textContent = new Date().toLocaleTimeString();
+        const bar = document.getElementById('uptime-bar');
+        for (let i = 0; i < 90; i++) {
+            const s = document.createElement('span');
+            if (i === 15 || i === 43) s.classList.add('down');
+            bar.appendChild(s);
+        }
+    </script>
+</body>
+</html>

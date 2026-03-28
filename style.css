@@ -3,40 +3,38 @@
     --fg: #FFFFFF;
     --dim: #888888;
     --accent: hsl(280, 100%, 70%);
-    --accent-dim: hsla(280, 100%, 70%, 0.1);
+    --accent-dim: hsla(280, 100%, 70%, 0.08);
     --border: rgba(255, 255, 255, 0.08);
     --glass: rgba(255, 255, 255, 0.02);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    cursor: default;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     background: var(--bg);
     color: var(--fg);
     font-family: 'Inter', sans-serif;
-    line-height: 1.4;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, .logo {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.04em;
+h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 800; letter-spacing: -0.04em; }
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* ── Logo Pulse ── */
+@keyframes logo-breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.07); }
 }
 
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+.logo-pulse {
+    display: inline-block;
+    animation: logo-breathe 3s ease-in-out infinite;
+    color: var(--accent);
 }
 
-/* Navbar */
+/* ── Navbar ── */
 .navbar {
     padding: 2.5rem 0;
     position: fixed;
@@ -48,18 +46,16 @@ h1, h2, h3, .logo {
 
 .navbar.scrolled {
     padding: 1rem 0;
-    background: rgba(5, 5, 5, 0.8);
+    background: rgba(5, 5, 5, 0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
 }
 
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+.navbar .container { display: flex; justify-content: space-between; align-items: center; }
 
 .logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
     font-size: 1.8rem;
     color: #FFF;
     text-decoration: none;
@@ -68,14 +64,7 @@ h1, h2, h3, .logo {
     gap: 0.6rem;
 }
 
-.logo span { color: var(--accent); }
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2.5rem;
-    align-items: center;
-}
+.nav-links { list-style: none; display: flex; gap: 2rem; align-items: center; }
 
 .nav-links a {
     text-decoration: none;
@@ -88,37 +77,27 @@ h1, h2, h3, .logo {
 
 .nav-links a:hover { color: #FFF; }
 
-/* Buttons & Magnetic Effect */
+/* ── Buttons ── */
 .btn {
     padding: 0.8rem 1.8rem;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 700;
     font-size: 0.9rem;
-    transition: transform 0.2s linear, background 0.3s ease;
+    transition: transform 0.15s linear, box-shadow 0.3s ease;
     display: inline-block;
     cursor: pointer;
-    position: relative;
 }
 
-.magnetic-wrap {
-    display: inline-block;
-    padding: 10px;
-    margin: -10px;
-}
+.magnetic-wrap { display: inline-block; padding: 10px; margin: -10px; }
 
-.btn-primary {
-    background: #FFF;
-    color: #000;
-}
+.btn-primary { background: #FFF; color: #000; }
+.btn-primary:hover { opacity: 0.9; }
 
-.btn-outline {
-    border: 1px solid var(--border);
-    color: #FFF;
-    background: var(--glass);
-}
+.btn-outline { border: 1px solid var(--border); color: #FFF; background: var(--glass); }
+.btn-outline:hover { border-color: var(--accent); }
 
-/* Hero Section */
+/* ── Hero ── */
 .hero {
     height: 100vh;
     display: flex;
@@ -128,40 +107,28 @@ h1, h2, h3, .logo {
     position: relative;
 }
 
-.hero-content h1 {
-    font-size: 6rem;
-    line-height: 0.9;
-    margin-bottom: 2rem;
-}
-
+.hero-content h1 { font-size: 6rem; line-height: 0.9; margin-bottom: 2rem; }
 .hero-content h1 span {
     background: linear-gradient(180deg, #FFF 0%, var(--dim) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.hero-content p { font-size: 1.3rem; color: var(--dim); margin: 0 auto 3rem; max-width: 500px; }
 
-.hero-content p {
-    font-size: 1.3rem;
-    color: var(--dim);
-    margin: 0 auto 3rem;
-    max-width: 500px;
-}
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-/* Features - Minimalist Card Grid */
+/* ── Features ── */
 .features { padding: 10rem 0; }
 
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
+.feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 
 .feature-card {
     background: var(--glass);
     border: 1px solid var(--border);
-    padding: 4rem 3rem;
+    padding: 3.5rem 3rem;
     border-radius: 20px;
     transition: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+    line-height: 1.7;
 }
 
 .feature-card:hover {
@@ -170,65 +137,69 @@ h1, h2, h3, .logo {
     transform: scale(1.02);
 }
 
-.feature-card span {
-    font-size: 1.5rem;
-    color: var(--accent);
-    margin-bottom: 2rem;
-    display: block;
-    font-weight: 800;
-}
+.feature-card span { font-size: 1.2rem; color: var(--accent); margin-bottom: 1.5rem; display: block; font-weight: 800; }
+.feature-card h3 { font-size: 1.8rem; margin-bottom: 1.2rem; }
+.feature-card p { color: var(--dim); font-size: 1.05rem; }
 
-.feature-card h3 { font-size: 2rem; margin-bottom: 1.5rem; }
-.feature-card p { color: var(--dim); font-size: 1.1rem; line-height: 1.6; }
-
-/* Pricing - Extreme Hover Physics */
+/* ── Pricing ── */
 .pricing { padding: 10rem 0; background: #080808; }
 
+/* Wrapper prevents overflow clipping on zoom */
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    gap: 1.2rem;
+    /* extra padding so scaled cards don't clip parent */
+    padding: 1.5rem;
+    margin: -1.5rem;
 }
 
 .pricing-card {
     background: var(--bg);
     border: 1px solid var(--border);
-    padding: 3rem 1.5rem;
+    padding: 2.5rem 1.5rem;
     border-radius: 16px;
-    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-align: center;
+    /* transition covers both transform & border-color smoothly */
+    transition: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                border-color 0.3s ease,
+                box-shadow 0.45s ease;
+    /* stacking context per card so each lifts independently */
+    position: relative;
+    z-index: 1;
 }
 
 .pricing-card:hover {
-    transform: scale(1.18);
-    z-index: 10;
+    transform: scale(1.13);
+    z-index: 10;                   /* lift above siblings cleanly */
     border-color: var(--accent);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+    box-shadow: 0 0 0 1px var(--accent), 0 25px 50px rgba(0, 0, 0, 0.8);
 }
 
-.pricing-card.featured { border-color: rgba(255,255,255,0.3); }
+.pricing-card.featured { border-color: rgba(255, 255, 255, 0.25); }
 
-.price { font-size: 3.5rem; font-weight: 800; margin-bottom: 2rem; }
+.pricing-card .tier { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 800; margin-bottom: 1rem; }
+.price { font-size: 3rem; font-weight: 800; margin-bottom: 2rem; }
 .price span { font-size: 1rem; color: var(--dim); font-weight: 400; }
 
-.tier-features { list-style: none; margin-bottom: 3rem; opacity: 0.6; font-size: 0.9rem; }
-.tier-features li { margin-bottom: 0.8rem; }
+.tier-features { list-style: none; margin-bottom: 2.5rem; }
+.tier-features li { margin-bottom: 0.7rem; color: var(--dim); font-size: 0.9rem; }
 
-/* Reveal Animations */
+/* ── Reveal Animations ── */
 .reveal { opacity: 0; transform: translateY(30px); transition: 1.2s cubic-bezier(0.2, 1, 0.3, 1); }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* Background Accents */
+/* ── Background Accents ── */
 .accent-glow {
-    position: absolute;
-    width: 40vw;
-    height: 40vw;
+    position: fixed;
+    width: 40vw; height: 40vw;
     background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
     z-index: -1;
     filter: blur(100px);
     pointer-events: none;
 }
 
+/* ── Responsive ── */
 @media (max-width: 900px) {
     .pricing-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-content h1 { font-size: 4rem; }
@@ -236,4 +207,5 @@ h1, h2, h3, .logo {
 }
 @media (max-width: 600px) {
     .pricing-grid { grid-template-columns: 1fr; }
+    .hero-content h1 { font-size: 3rem; }
 }

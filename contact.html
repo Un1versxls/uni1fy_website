@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un1fy | Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="_shared.css">
+    <style>
+        form { background: var(--glass); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; }
+        label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--dim); margin-bottom: 0.5rem; }
+        input, textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #FFF; padding: 0.8rem 1rem; border-radius: 8px; font-size: 1rem; font-family: inherit; margin-bottom: 1.2rem; transition: 0.2s; resize: none; }
+        input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+        .success { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.3); border-radius: 12px; padding: 2rem; text-align: center; display: none; }
+        .methods { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 3rem; }
+        .method { display: flex; align-items: center; gap: 1rem; background: var(--glass); border: 1px solid var(--border); padding: 1.2rem 1.5rem; border-radius: 12px; }
+        .method .icon { font-size: 1.5rem; }
+        .method small { display: block; color: var(--dim); font-size: 0.8rem; }
+        @media (max-width: 600px) { .methods { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav class="page-nav">
+        <a href="index.html" class="logo">Un1fy<span>.</span></a>
+        <a href="index.html" class="back-link">← Back home</a>
+    </nav>
+    <div class="page-body">
+        <div class="container">
+            <h1 class="page-title">📬 Contact</h1>
+            <p class="page-sub">Reach out. We respond within 24 hours.</p>
+
+            <div class="methods">
+                <div class="method">
+                    <span class="icon">📧</span>
+                    <div>
+                        <strong>Email</strong>
+                        <small>support@un1fy.io</small>
+                    </div>
+                </div>
+                <div class="method">
+                    <span class="icon">💬</span>
+                    <div>
+                        <strong>Live Chat</strong>
+                        <small>Mon–Fri, 9am–5pm PST</small>
+                    </div>
+                </div>
+            </div>
+
+            <form id="contact-form" onsubmit="sendMessage(event)">
+                <label>Name</label>
+                <input type="text" placeholder="Your name" required>
+                <label>Email</label>
+                <input type="email" placeholder="you@email.com" required>
+                <label>Subject</label>
+                <input type="text" placeholder="What's this about?" required>
+                <label>Message</label>
+                <textarea rows="5" placeholder="Tell us what's up..." required></textarea>
+                <button type="submit" class="btn btn-white" style="width: 100%;">Send Message 📨</button>
+            </form>
+
+            <div class="success" id="success-msg">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+                <h3>Message sent!</h3>
+                <p style="color: var(--dim); margin-top: 0.5rem;">We'll get back to you within 24 hours.</p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2026 UN1FY</p>
+        <a href="index.html">← Back home</a>
+    </footer>
+    <script>
+        function sendMessage(e) {
+            e.preventDefault();
+            document.getElementById('contact-form').style.display = 'none';
+            document.getElementById('success-msg').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
