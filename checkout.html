@@ -10,21 +10,21 @@
     <style>
         .checkout-layout { display: grid; grid-template-columns: 1fr 400px; gap: 3rem; align-items: start; }
         .plans { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-        .plan { background: #FFF; border: 1px solid var(--border); border-radius: 16px; padding: 2rem; cursor: pointer; transition: 0.3s cubic-bezier(0.2, 1, 0.3, 1); position: relative; overflow: hidden; box-shadow: var(--shadow); }
-        .plan:hover { border-color: var(--accent); background: #FAFAFA; transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.06); }
-        .plan.selected { border-color: var(--accent); background: #FAFAFA; box-shadow: 0 0 0 2px var(--accent), 0 15px 40px rgba(170, 0, 255, 0.08); }
-        .plan.selected::before { content: '✓'; position: absolute; top: 1rem; right: 1.5rem; color: var(--accent); font-size: 1.5rem; font-weight: 800; text-shadow: 0 0 10px rgba(170, 0, 255, 0.2); }
-        .plan-name { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--fg); }
-        .plan-price { font-size: 2.5rem; font-weight: 800; color: var(--fg); }
+        .plan { background: var(--glass); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; cursor: pointer; transition: 0.3s cubic-bezier(0.2, 1, 0.3, 1); position: relative; overflow: hidden; }
+        .plan:hover { border-color: var(--accent); background: var(--accent-dim); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .plan.selected { border-color: var(--accent); background: var(--accent-dim); box-shadow: 0 0 0 2px var(--accent), 0 0 40px rgba(170, 0, 255, 0.2); }
+        .plan.selected::before { content: '✓'; position: absolute; top: 1rem; right: 1.5rem; color: var(--accent); font-size: 1.5rem; font-weight: 800; text-shadow: 0 0 10px var(--accent); }
+        .plan-name { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .plan-price { font-size: 2.5rem; font-weight: 800; }
         .plan-price span { font-size: 1rem; color: var(--dim); font-weight: 400; }
         .plan-features { margin-top: 1rem; color: var(--dim); font-size: 0.9rem; }
         .plan-features li { list-style: none; margin-bottom: 0.4rem; }
         .plan-features li::before { content: '✓ '; color: var(--accent); }
         
-        .form-container { background: #FFF; border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; box-shadow: 0 20px 60px rgba(0,0,0,0.06); }
+        .form-container { background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
         label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--dim); margin-bottom: 0.5rem; transition: 0.2s; }
-        input { width: 100%; background: #FAFAFA; border: 1px solid var(--border); color: var(--fg); padding: 0.95rem 1.2rem; border-radius: 10px; font-size: 1rem; font-family: inherit; margin-bottom: 1.2rem; transition: 0.3s; }
-        input:focus { outline: none; border-color: var(--accent); background: #FFF; box-shadow: 0 0 0 4px rgba(170, 0, 255, 0.05); }
+        input { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: #FFF; padding: 0.95rem 1.2rem; border-radius: 10px; font-size: 1rem; font-family: inherit; margin-bottom: 1.2rem; transition: 0.3s; }
+        input:focus { outline: none; border-color: var(--accent); background: rgba(170, 0, 255, 0.05); box-shadow: 0 0 0 4px rgba(170, 0, 255, 0.1); }
         input:focus + label { color: var(--accent); }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
         .notice { color: var(--dim); font-size: 0.8rem; margin-top: 1rem; text-align: center; }

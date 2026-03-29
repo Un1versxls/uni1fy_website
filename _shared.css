@@ -1,12 +1,11 @@
 :root {
-    --bg: #FFFFFF;
-    --fg: #0A0A0A;
-    --dim: #666666;
-    --accent: hsl(280, 80%, 55%);
-    --accent-dim: hsla(280, 100%, 70%, 0.05);
-    --border: rgba(0, 0, 0, 0.08);
-    --glass: rgba(0, 0, 0, 0.02);
-    --shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    --bg: #050505;
+    --fg: #FFFFFF;
+    --dim: #888888;
+    --accent: hsl(280, 100%, 70%);
+    --accent-dim: hsla(280, 100%, 70%, 0.1);
+    --border: rgba(255, 255, 255, 0.08);
+    --glass: rgba(255, 255, 255, 0.02);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: var(--bg); color: var(--fg); font-family: 'Inter', sans-serif; min-height: 100vh; -webkit-font-smoothing: antialiased; }
@@ -36,22 +35,22 @@ a:hover { text-decoration: underline; }
 .page-nav {
     display: flex; align-items: center; justify-content: space-between;
     padding: 2rem 1.5rem; border-bottom: 1px solid var(--border);
-    max-width: 100%; background: rgba(255,255,255,0.8); backdrop-filter: blur(20px);
+    max-width: 100%; background: rgba(5,5,5,0.8); backdrop-filter: blur(20px);
     position: sticky; top: 0; z-index: 100;
 }
-.page-nav .logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--fg); }
+.page-nav .logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.5rem; color: #FFF; }
 .page-nav .logo span { color: var(--accent); }
 .back-link { color: var(--dim); font-size: 0.85rem; font-weight: 600; }
 .back-link:hover { color: #FFF; text-decoration: none; }
 .page-body { padding: 6rem 1.5rem; }
 .page-title { font-size: 4rem; margin-bottom: 1rem; }
 .page-sub { color: var(--dim); font-size: 1.2rem; margin-bottom: 4rem; }
-.card { background: #FFF; border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow); }
-.card h3 { font-size: 1.4rem; margin-bottom: 0.75rem; color: var(--fg); }
+.card { background: var(--glass); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; margin-bottom: 1.5rem; }
+.card h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
 .card p { color: var(--dim); line-height: 1.7; }
 .btn { display: inline-block; padding: 0.9rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem; transition: transform 0.15s linear, box-shadow 0.3s ease, border-color 0.2s, background 0.2s; cursor: pointer; }
-.btn-white { background: #000; color: #FFF; border: none; }
-.btn-white:hover { opacity: 0.85; text-decoration: none; transform: scale(1.02); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-.btn-outline { border: 1px solid var(--border); color: var(--fg); background: transparent; }
-.btn-outline:hover { border-color: var(--accent); text-decoration: none; transform: scale(1.02); background: #FAFAFA; color: var(--accent); }
+.btn-white { background: #FFF; color: #000; border: none; }
+.btn-white:hover { opacity: 0.85; text-decoration: none; transform: scale(1.02); }
+.btn-outline { border: 1px solid var(--border); color: #FFF; background: var(--glass); }
+.btn-outline:hover { border-color: var(--accent); text-decoration: none; transform: scale(1.02); background: var(--accent-dim); }
 .footer { padding: 3rem 1.5rem; border-top: 1px solid var(--border); color: var(--dim); font-size: 0.8rem; display: flex; justify-content: space-between; }
