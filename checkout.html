@@ -212,12 +212,18 @@
         function handleSubmit(e) {
             e.preventDefault();
             if (isFree) {
+                const email = document.getElementById('free-email').value;
+                const reason = document.getElementById('free-reason').value || "No reason provided.";
+                const subject = encodeURIComponent("Un1fy Free Trial Request");
+                const body = encodeURIComponent(`User Email: ${email}\nReason: ${reason}\n\nOwner: Please review this request and reply directly to the user to grant access.`);
+                window.location.href = `mailto:un1versxldev+un1fy@gmail.com?subject=${subject}&body=${body}`;
+
                 const btn = document.getElementById('free-btn');
-                btn.textContent = '⏳ Sending request...';
+                btn.textContent = '⏳ Opening Email Client...';
                 btn.disabled = true;
                 btn.style.animation = 'none';
                 setTimeout(() => {
-                    btn.textContent = '✅ Request sent! We\'ll review within 1-2 days.';
+                    btn.textContent = '✅ Email drafted! Please hit send.';
                     btn.style.background = '#10B981';
                 }, 1500);
             } else {
