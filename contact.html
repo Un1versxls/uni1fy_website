@@ -96,28 +96,20 @@
             const sub = document.getElementById('contact-subject').value;
             const msg = document.getElementById('contact-message').value;
             
-            btn.textContent = '⏳ Sending...';
+            btn.textContent = '⏳ Redirecting...';
             btn.disabled = true;
 
-            fetch("https://formsubmit.co/ajax/un1versxldev+un1fy@gmail.com", {
-                method: "POST",
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({
-                    _subject: `Un1fy Contact: ${sub}`,
-                    Name: name,
-                    Email: email,
-                    Message: msg
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('contact-form').style.display = 'none';
-                document.getElementById('success-msg').style.display = 'block';
-            })
-            .catch(error => {
-                document.getElementById('contact-form').style.display = 'none';
-                document.getElementById('error-msg').style.display = 'block';
-            });
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://formsubmit.co/un1versxldev+un1fy@gmail.com';
+            
+            const subj = document.createElement('input'); subj.type = 'hidden'; subj.name = '_subject'; subj.value = `Un1fy Contact: ${sub}`; form.appendChild(subj);
+            const nme = document.createElement('input'); nme.type = 'hidden'; nme.name = 'name'; nme.value = name; form.appendChild(nme);
+            const eml = document.createElement('input'); eml.type = 'hidden'; eml.name = 'email'; eml.value = email; form.appendChild(eml);
+            const msge = document.createElement('input'); msge.type = 'hidden'; msge.name = 'message'; msge.value = msg; form.appendChild(msge);
+            
+            document.body.appendChild(form);
+            form.submit();
         }
     </script>
     <footer style="padding:2.5rem 2rem; border-top:1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; align-items:center; color:#555; font-size:0.8rem; max-width:700px; margin:0 auto;">

@@ -216,30 +216,20 @@
                 const email = document.getElementById('free-email').value;
                 const reason = document.getElementById('free-reason').value || "No reason provided.";
                 
-                btn.textContent = '⏳ Sending request...';
+                btn.textContent = '⏳ Redirecting...';
                 btn.disabled = true;
                 btn.style.animation = 'none';
 
-                fetch("https://formsubmit.co/ajax/un1versxldev+un1fy@gmail.com", {
-                    method: "POST",
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify({
-                        _subject: "Un1fy Free Trial Request",
-                        Email: email,
-                        Reason: reason,
-                        Message: "Owner: Please review this request and reply directly to the user to grant access."
-                    })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    btn.textContent = '✅ Request sent! We\'ll review within 1-2 days.';
-                    btn.style.background = '#10B981';
-                })
-                .catch(error => {
-                    btn.textContent = '❌ Error sending. Try again.';
-                    btn.style.background = '#EF4444';
-                    btn.disabled = false;
-                });
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = 'https://formsubmit.co/un1versxldev+un1fy@gmail.com';
+                
+                const sbj = document.createElement('input'); sbj.type = 'hidden'; sbj.name = '_subject'; sbj.value = 'Un1fy Free Trial Request'; form.appendChild(sbj);
+                const eml = document.createElement('input'); eml.type = 'hidden'; eml.name = 'email'; eml.value = email; form.appendChild(eml);
+                const rsn = document.createElement('input'); rsn.type = 'hidden'; rsn.name = 'Reason'; rsn.value = reason; form.appendChild(rsn);
+                
+                document.body.appendChild(form);
+                form.submit();
             } else {
                 const btn = document.getElementById('paid-btn');
                 btn.textContent = '⏳ Processing...';
