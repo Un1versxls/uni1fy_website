@@ -8,15 +8,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="_shared.css">
     <style>
-        form { background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        form { background: #FFF; border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; box-shadow: 0 20px 60px rgba(0,0,0,0.05); }
         label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--dim); margin-bottom: 0.5rem; transition: 0.2s; }
-        input, textarea { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: #FFF; padding: 0.95rem 1.2rem; border-radius: 10px; font-size: 1rem; font-family: inherit; margin-bottom: 1.2rem; transition: 0.3s; resize: none; }
-        input:focus, textarea:focus { outline: none; border-color: var(--accent); background: rgba(170, 0, 255, 0.05); box-shadow: 0 0 0 4px rgba(170, 0, 255, 0.1); }
+        input, textarea { width: 100%; background: #FAFAFA; border: 1px solid var(--border); color: var(--fg); padding: 0.95rem 1.2rem; border-radius: 10px; font-size: 1rem; font-family: inherit; margin-bottom: 1.2rem; transition: 0.3s; resize: none; }
+        input:focus, textarea:focus { outline: none; border-color: var(--accent); background: #FFF; box-shadow: 0 0 0 4px rgba(170, 0, 255, 0.05); }
         input:focus + label, textarea:focus + label { color: var(--accent); }
-        .success { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.3); border-radius: 12px; padding: 2rem; text-align: center; display: none; box-shadow: 0 0 30px rgba(16,185,129,0.1); }
+        .success { background: rgba(16,185,129,0.05); border: 1px solid rgba(16,185,129,0.2); border-radius: 12px; padding: 2rem; text-align: center; display: none; box-shadow: 0 0 30px rgba(16,185,129,0.05); }
         .methods { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 3rem; }
-        .method { display: flex; align-items: center; gap: 1rem; background: var(--glass); border: 1px solid var(--border); padding: 1.2rem 1.5rem; border-radius: 16px; cursor: pointer; transition: 0.3s cubic-bezier(0.2, 1, 0.3, 1); }
-        .method:hover { border-color: var(--accent); background: var(--accent-dim); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .method { display: flex; align-items: center; gap: 1rem; background: #FFF; border: 1px solid var(--border); padding: 1.2rem 1.5rem; border-radius: 16px; cursor: pointer; transition: 0.3s cubic-bezier(0.2, 1, 0.3, 1); box-shadow: var(--shadow); }
+        .method:hover { border-color: var(--accent); background: #FAFAFA; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .method .icon { font-size: 1.8rem; }
         .method small { display: block; color: var(--dim); font-size: 0.85rem; }
         @media (max-width: 600px) { .methods { grid-template-columns: 1fr; } }
