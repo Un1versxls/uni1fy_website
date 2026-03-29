@@ -169,12 +169,22 @@
     </style>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('success') === 'true') {
+        const successType = urlParams.get('success');
+        
+        if (successType) {
             window.history.replaceState({}, document.title, window.location.pathname);
             const toast = document.createElement('div');
             toast.id = 'global-toast';
-            toast.innerHTML = `<span style="font-size:1.2rem;">✅</span> Successfully Delivered!`;
+            
+            // Customize text based on the param value
+            let msg = "Successfully Delivered!";
+            if (successType === 'contact') msg = "Message Sent! We'll reply soon.";
+            if (successType === 'checkout') msg = "Trial Requested! Reviewing now.";
+            if (successType === 'free_trial') msg = "Plan Requested! Check your email.";
+            
+            toast.innerHTML = `<span style="font-size:1.2rem;">✅</span> ${msg}`;
             document.body.appendChild(toast);
+            
             setTimeout(() => toast.classList.add('show'), 100);
             setTimeout(() => {
                 toast.classList.remove('show');
