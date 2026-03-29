@@ -1,11 +1,12 @@
+html, body { background: #000; color: #FFFFFF; }
 :root {
-    --bg: #050505;
+    --bg: #000000;
     --fg: #FFFFFF;
-    --dim: #888888;
+    --dim: #999999;
     --accent: hsl(280, 100%, 70%);
-    --accent-dim: hsla(280, 100%, 70%, 0.1);
-    --border: rgba(255, 255, 255, 0.08);
-    --glass: rgba(255, 255, 255, 0.02);
+    --accent-dim: hsla(280, 100%, 70%, 0.15);
+    --border: rgba(255, 255, 255, 0.1);
+    --glass: rgba(255, 255, 255, 0.03);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -56,7 +57,7 @@ h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 800; letter-spacing
 
 .navbar.scrolled {
     padding: 1rem 0;
-    background: rgba(5, 5, 5, 0.85);
+    background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
 }
@@ -101,8 +102,8 @@ h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 800; letter-spacing
 
 .magnetic-wrap { display: inline-block; padding: 10px; margin: -10px; }
 
-.btn-primary { background: #FFF; color: #000; }
-.btn-primary:hover { opacity: 0.9; }
+.btn-primary { background: var(--accent); color: #FFF; box-shadow: 0 0 20px var(--accent-dim); }
+.btn-primary:hover { background: #FFF; color: #000; }
 
 .btn-outline { border: 1px solid var(--border); color: #FFF; background: var(--glass); }
 .btn-outline:hover { border-color: var(--accent); }
@@ -153,7 +154,7 @@ h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 800; letter-spacing
 .feature-card p { color: var(--dim); font-size: 1.05rem; }
 
 /* ── Pricing ── */
-.pricing { padding: 10rem 0; background: #080808; }
+.pricing { padding: 10rem 0; background: #000000; }
 
 /* Wrapper prevents overflow clipping on zoom */
 .pricing-grid {

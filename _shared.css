@@ -1,11 +1,12 @@
+html, body { background: #000; color: #FFFFFF; }
 :root {
-    --bg: #050505;
+    --bg: #000000;
     --fg: #FFFFFF;
-    --dim: #888888;
+    --dim: #999999;
     --accent: hsl(280, 100%, 70%);
-    --accent-dim: hsla(280, 100%, 70%, 0.1);
-    --border: rgba(255, 255, 255, 0.08);
-    --glass: rgba(255, 255, 255, 0.02);
+    --accent-dim: hsla(280, 100%, 70%, 0.15);
+    --border: rgba(255, 255, 255, 0.1);
+    --glass: rgba(255, 255, 255, 0.03);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: var(--bg); color: var(--fg); font-family: 'Inter', sans-serif; min-height: 100vh; -webkit-font-smoothing: antialiased; }
@@ -35,7 +36,7 @@ a:hover { text-decoration: underline; }
 .page-nav {
     display: flex; align-items: center; justify-content: space-between;
     padding: 2rem 1.5rem; border-bottom: 1px solid var(--border);
-    max-width: 100%; background: rgba(5,5,5,0.8); backdrop-filter: blur(20px);
+    max-width: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(25px);
     position: sticky; top: 0; z-index: 100;
 }
 .page-nav .logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.5rem; color: #FFF; }
@@ -49,8 +50,8 @@ a:hover { text-decoration: underline; }
 .card h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
 .card p { color: var(--dim); line-height: 1.7; }
 .btn { display: inline-block; padding: 0.9rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem; transition: transform 0.15s linear, box-shadow 0.3s ease, border-color 0.2s, background 0.2s; cursor: pointer; }
-.btn-white { background: #FFF; color: #000; border: none; }
-.btn-white:hover { opacity: 0.85; text-decoration: none; transform: scale(1.02); }
+.btn-white { background: var(--accent); color: #FFF; border: none; box-shadow: 0 0 20px var(--accent-dim); }
+.btn-white:hover { background: #FFF; color: #000; text-decoration: none; transform: scale(1.02); }
 .btn-outline { border: 1px solid var(--border); color: #FFF; background: var(--glass); }
 .btn-outline:hover { border-color: var(--accent); text-decoration: none; transform: scale(1.02); background: var(--accent-dim); }
 .footer { padding: 3rem 1.5rem; border-top: 1px solid var(--border); color: var(--dim); font-size: 0.8rem; display: flex; justify-content: space-between; }
