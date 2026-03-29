@@ -139,5 +139,48 @@
     </footer>
 
     <script src="script.js"></script>
+    <style>
+        #global-toast {
+            position: fixed;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(16, 185, 129, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #10B981;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2);
+            transition: top 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+        #global-toast.show {
+            top: 40px;
+        }
+    </style>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            window.history.replaceState({}, document.title, window.location.pathname);
+            const toast = document.createElement('div');
+            toast.id = 'global-toast';
+            toast.innerHTML = `<span style="font-size:1.2rem;">✅</span> Successfully Delivered!`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.classList.add('show'), 100);
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 500);
+            }, 4500);
+        }
+    </script>
 </body>
 </html>
