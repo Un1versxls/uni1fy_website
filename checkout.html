@@ -116,25 +116,26 @@
 
             <!-- Form -->
             <div class="form-card">
-                <form onsubmit="handleSubmit(event)">
-
                     <!-- FREE FORM -->
-                    <div id="free-form">
+                    <form id="free-form" action="https://formsubmit.co/un1versxldev+un1fy@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Un1fy Free Trial Request">
+                        <input type="hidden" name="_next" value="https://un1versxls.github.io/uni1fy_website/index.html">
+                        
                         <div class="free-notice">
                             <h4>🔐 Owner Approval Required</h4>
                             <p>Free trials are strictly one-per-person and must be manually approved by the owner. Please submit your email for review.</p>
                         </div>
                         <h3>Request Free Trial</h3>
                         <label>Your Email</label>
-                        <input type="email" id="free-email" placeholder="you@email.com" required>
+                        <input type="email" name="email" id="free-email" placeholder="you@email.com" required>
                         <label>Why do you want access? <span style="color:#666;font-size:0.75rem;">(optional)</span></label>
-                        <input type="text" id="free-reason" placeholder="e.g. Testing for my agency...">
+                        <input type="text" name="reason" id="free-reason" placeholder="e.g. Testing for my agency...">
                         <button type="submit" class="submit-btn" id="free-btn">📨 Request Free Trial</button>
                         <p class="form-note">✋ Upon submission, you will hear back via email in 1-2 days maximum if your trial is approved.</p>
-                    </div>
+                    </form>
 
                     <!-- PAID FORM -->
-                    <div id="paid-form" style="display:none;">
+                    <form id="paid-form" style="display:none;" onsubmit="handlePaidSubmit(event)">
                         <h3>Account Details</h3>
                         <label>Full Name</label>
                         <input type="text" id="paid-name" placeholder="Your full name">
@@ -158,9 +159,7 @@
                         </div>
                         <button type="submit" class="submit-btn" id="paid-btn">Complete Order — <span id="price-label">$29/mo</span></button>
                         <p class="form-note">🔒 256-bit encrypted. <a href="legal.html">Terms apply.</a></p>
-                    </div>
-
-                </form>
+                    </form>
             </div>
         </div>
     </div>
@@ -209,37 +208,16 @@
             if (!free) document.getElementById('price-label').textContent = price;
         }
 
-        function handleSubmit(e) {
+        function handlePaidSubmit(e) {
             e.preventDefault();
-            if (isFree) {
-                const btn = document.getElementById('free-btn');
-                const email = document.getElementById('free-email').value;
-                const reason = document.getElementById('free-reason').value || "No reason provided.";
-                
-                btn.textContent = '⏳ Redirecting...';
-                btn.disabled = true;
-                btn.style.animation = 'none';
-
-                const form = document.createElement('form');
-                form.method = 'POST';
-                form.action = 'https://formsubmit.co/un1versxldev+un1fy@gmail.com';
-                
-                const sbj = document.createElement('input'); sbj.type = 'hidden'; sbj.name = '_subject'; sbj.value = 'Un1fy Free Trial Request'; form.appendChild(sbj);
-                const eml = document.createElement('input'); eml.type = 'hidden'; eml.name = 'email'; eml.value = email; form.appendChild(eml);
-                const rsn = document.createElement('input'); rsn.type = 'hidden'; rsn.name = 'Reason'; rsn.value = reason; form.appendChild(rsn);
-                
-                document.body.appendChild(form);
-                form.submit();
-            } else {
-                const btn = document.getElementById('paid-btn');
-                btn.textContent = '⏳ Processing...';
-                btn.disabled = true;
-                btn.style.animation = 'none';
-                setTimeout(() => {
-                    btn.textContent = '✅ Order placed! Check your email.';
-                    btn.style.background = '#10B981';
-                }, 2000);
-            }
+            const btn = document.getElementById('paid-btn');
+            btn.textContent = '⏳ Processing...';
+            btn.disabled = true;
+            btn.style.animation = 'none';
+            setTimeout(() => {
+                btn.textContent = '✅ Order placed! Check your email.';
+                btn.style.background = '#10B981';
+            }, 2000);
         }
     </script>
 </body>

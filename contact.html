@@ -64,54 +64,22 @@
         </div>
 
         <div class="form-card">
-            <form id="contact-form" onsubmit="sendMessage(event)">
+            <form action="https://formsubmit.co/un1versxldev+un1fy@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Un1fy Website Contact Inquiry">
+                <input type="hidden" name="_next" value="https://un1versxls.github.io/uni1fy_website/index.html">
+                
                 <label>Name</label>
-                <input type="text" id="contact-name" placeholder="Your name" required>
+                <input type="text" name="name" placeholder="Your name" required>
                 <label>Email</label>
-                <input type="email" id="contact-email" placeholder="you@email.com" required>
+                <input type="email" name="email" placeholder="you@email.com" required>
                 <label>Subject</label>
-                <input type="text" id="contact-subject" placeholder="What's this about?" required>
+                <input type="text" name="_auto_subject" placeholder="What's this about?" required>
                 <label>Message</label>
-                <textarea rows="5" id="contact-message" placeholder="Tell us what's up..." required></textarea>
-                <button type="submit" class="submit-btn" id="contact-btn">Send Message 📨</button>
+                <textarea rows="5" name="message" placeholder="Tell us what's up..." required></textarea>
+                <button type="submit" class="submit-btn">Send Message 📨</button>
             </form>
-            <div class="success-msg" id="success-msg">
-                <div class="icon">✅</div>
-                <h3>Message sent!</h3>
-                <p style="color:#888;margin-top:0.5rem;">We'll get back to you within 24 hours.</p>
-            </div>
-            <div class="success-msg" id="error-msg" style="background: rgba(239, 68, 68, 0.06); border-color: rgba(239, 68, 68, 0.2);">
-                <div class="icon">❌</div>
-                <h3>Failed to send</h3>
-                <p style="color:#888;margin-top:0.5rem;">Please check your connection and try again.</p>
-            </div>
         </div>
     </div>
-    <script>
-        function sendMessage(e) {
-            e.preventDefault();
-            const btn = document.getElementById('contact-btn');
-            const name = document.getElementById('contact-name').value;
-            const email = document.getElementById('contact-email').value;
-            const sub = document.getElementById('contact-subject').value;
-            const msg = document.getElementById('contact-message').value;
-            
-            btn.textContent = '⏳ Redirecting...';
-            btn.disabled = true;
-
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = 'https://formsubmit.co/un1versxldev+un1fy@gmail.com';
-            
-            const subj = document.createElement('input'); subj.type = 'hidden'; subj.name = '_subject'; subj.value = `Un1fy Contact: ${sub}`; form.appendChild(subj);
-            const nme = document.createElement('input'); nme.type = 'hidden'; nme.name = 'name'; nme.value = name; form.appendChild(nme);
-            const eml = document.createElement('input'); eml.type = 'hidden'; eml.name = 'email'; eml.value = email; form.appendChild(eml);
-            const msge = document.createElement('input'); msge.type = 'hidden'; msge.name = 'message'; msge.value = msg; form.appendChild(msge);
-            
-            document.body.appendChild(form);
-            form.submit();
-        }
-    </script>
     <footer style="padding:2.5rem 2rem; border-top:1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; align-items:center; color:#555; font-size:0.8rem; max-width:700px; margin:0 auto;">
         <span>&copy; 2026 UN1FY</span>
         <a href="legal.html" style="color:#555;text-decoration:none;">Legal</a>
