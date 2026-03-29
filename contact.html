@@ -65,18 +65,24 @@
 
         <div class="form-card">
             <form action="https://formsubmit.co/un1versxldev+un1fy@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="Un1fy Website Contact Inquiry">
+                <!-- FormSubmit Configuration -->
+                <input type="hidden" name="_subject" value="New Un1fy Contact Inquiry">
                 <input type="hidden" name="_next" value="https://un1versxls.github.io/uni1fy_website/index.html?success=true">
+                <input type="hidden" name="_template" value="table">
                 
                 <label>Name</label>
                 <input type="text" name="name" placeholder="Your name" required>
+                
                 <label>Email</label>
                 <input type="email" name="email" placeholder="you@email.com" required>
+                
                 <label>Subject</label>
-                <input type="text" name="_auto_subject" placeholder="What's this about?" required>
+                <input type="text" name="subject" placeholder="What's this about?" required>
+                
                 <label>Message</label>
                 <textarea rows="5" name="message" placeholder="Tell us what's up..." required></textarea>
-                <button type="submit" class="submit-btn">Send Message 📨</button>
+                
+                <button type="submit" class="submit-btn" style="cursor:pointer;">Send Message 📨</button>
             </form>
         </div>
     </div>
@@ -84,12 +90,6 @@
         <span>&copy; 2026 UN1FY</span>
         <a href="legal.html" style="color:#555;text-decoration:none;">Legal</a>
     </footer>
-    <script>
-        function sendMessage(e) {
-            e.preventDefault();
-            document.getElementById('contact-form').style.display = 'none';
-            document.getElementById('success-msg').style.display = 'block';
-        }
-    </script>
+
 </body>
 </html>
