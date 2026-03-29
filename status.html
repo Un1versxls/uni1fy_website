@@ -8,9 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="_shared.css">
     <style>
-        body { background: #000 !important; color: #FFF !important; margin: 0; }
+        body { background: #000 !important; color: #FFF !important; margin: 0; font-family: 'Inter', sans-serif; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 100px; color: #FFF; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
+        .back-link:hover { background: var(--accent); border-color: var(--accent); transform: translateX(-5px); }
         .status-row { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; border-bottom: 1px solid var(--border); transition: 0.3s; }
-        .status-row:hover { background: rgba(255,255,255,0.02); }
+        .status-row:hover { background: rgba(255,255,255,0.03); transform: scale(1.01); }
         .status-row:last-child { border-bottom: none; }
         .status-name { font-weight: 600; font-size: 1rem; }
         .badge { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; padding: 0.4rem 0.8rem; background: rgba(16,185,129,0.1); border-radius: 20px; color: #10B981; }
