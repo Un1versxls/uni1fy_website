@@ -122,7 +122,7 @@
                     <div id="free-form">
                         <div class="free-notice">
                             <h4>🔐 Owner Approval Required</h4>
-                            <p>Free trials are one-per-person and manually reviewed. Submit your email below and you'll hear back within 24 hours if approved.</p>
+                            <p>Free trials are strictly one-per-person and must be manually approved by the owner. Please submit your email for review.</p>
                         </div>
                         <h3>Request Free Trial</h3>
                         <label>Your Email</label>
@@ -130,30 +130,30 @@
                         <label>Why do you want access? <span style="color:#666;font-size:0.75rem;">(optional)</span></label>
                         <input type="text" id="free-reason" placeholder="e.g. Testing for my agency...">
                         <button type="submit" class="submit-btn" id="free-btn">📨 Request Free Trial</button>
-                        <p class="form-note">✋ One trial per person. You'll receive an email if approved.</p>
+                        <p class="form-note">✋ Upon submission, you will hear back via email in 1-2 days maximum if your trial is approved.</p>
                     </div>
 
                     <!-- PAID FORM -->
                     <div id="paid-form" style="display:none;">
                         <h3>Account Details</h3>
                         <label>Full Name</label>
-                        <input type="text" placeholder="Your full name" required>
+                        <input type="text" id="paid-name" placeholder="Your full name">
                         <label>Email Address</label>
-                        <input type="email" placeholder="you@email.com" required>
+                        <input type="email" id="paid-email" placeholder="you@email.com">
                         <label>License Key <span style="color:#666;font-size:0.75rem;">(leave blank to generate)</span></label>
                         <input type="text" placeholder="UN1FY-XXXX-XXXX">
 
-                        <h3 style="margin-top:1.5rem;">Payment</h3>
+                        <h3 style="margin-top:1.5rem;">Payment Method</h3>
                         <label>Card Number</label>
-                        <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                        <input type="text" id="paid-cc" placeholder="1234 5678 9012 3456" maxlength="19">
                         <div class="form-row">
                             <div>
                                 <label>Expiry</label>
-                                <input type="text" placeholder="MM / YY" maxlength="7" required>
+                                <input type="text" id="paid-exp" placeholder="MM / YY" maxlength="7">
                             </div>
                             <div>
                                 <label>CVC</label>
-                                <input type="text" placeholder="123" maxlength="4" required>
+                                <input type="text" id="paid-cvc" placeholder="123" maxlength="4">
                             </div>
                         </div>
                         <button type="submit" class="submit-btn" id="paid-btn">Complete Order — <span id="price-label">$29/mo</span></button>
@@ -197,6 +197,15 @@
             isFree = free;
             document.getElementById('free-form').style.display = free ? 'block' : 'none';
             document.getElementById('paid-form').style.display = free ? 'none' : 'block';
+            
+            // Manage required fields based on visibility
+            document.getElementById('free-email').required = free;
+            document.getElementById('paid-name').required = !free;
+            document.getElementById('paid-email').required = !free;
+            document.getElementById('paid-cc').required = !free;
+            document.getElementById('paid-exp').required = !free;
+            document.getElementById('paid-cvc').required = !free;
+
             if (!free) document.getElementById('price-label').textContent = price;
         }
 
@@ -208,7 +217,7 @@
                 btn.disabled = true;
                 btn.style.animation = 'none';
                 setTimeout(() => {
-                    btn.textContent = '✅ Request sent! We\'ll review within 24h.';
+                    btn.textContent = '✅ Request sent! We\'ll review within 1-2 days.';
                     btn.style.background = '#10B981';
                 }, 1500);
             } else {
