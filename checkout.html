@@ -8,95 +8,113 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="_shared.css">
     <style>
-        .plans { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
-        .plan { background: var(--glass); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; cursor: pointer; transition: 0.3s; }
-        .plan:hover, .plan.selected { border-color: var(--accent); background: var(--accent-dim); }
+        .checkout-layout { display: grid; grid-template-columns: 1fr 400px; gap: 3rem; align-items: start; }
+        .plans { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .plan { background: var(--glass); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; cursor: pointer; transition: 0.3s cubic-bezier(0.2, 1, 0.3, 1); position: relative; overflow: hidden; }
+        .plan:hover { border-color: var(--accent); background: var(--accent-dim); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .plan.selected { border-color: var(--accent); background: var(--accent-dim); box-shadow: 0 0 0 2px var(--accent), 0 0 40px rgba(170, 0, 255, 0.2); }
+        .plan.selected::before { content: '✓'; position: absolute; top: 1rem; right: 1.5rem; color: var(--accent); font-size: 1.5rem; font-weight: 800; text-shadow: 0 0 10px var(--accent); }
         .plan-name { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
         .plan-price { font-size: 2.5rem; font-weight: 800; }
         .plan-price span { font-size: 1rem; color: var(--dim); font-weight: 400; }
         .plan-features { margin-top: 1rem; color: var(--dim); font-size: 0.9rem; }
         .plan-features li { list-style: none; margin-bottom: 0.4rem; }
         .plan-features li::before { content: '✓ '; color: var(--accent); }
-        form { background: var(--glass); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; }
-        label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--dim); margin-bottom: 0.5rem; }
-        input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #FFF; padding: 0.8rem 1rem; border-radius: 8px; font-size: 1rem; font-family: inherit; margin-bottom: 1.2rem; transition: 0.2s; }
-        input:focus { outline: none; border-color: var(--accent); }
+        
+        .form-container { background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--dim); margin-bottom: 0.5rem; transition: 0.2s; }
+        input { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: #FFF; padding: 0.95rem 1.2rem; border-radius: 10px; font-size: 1rem; font-family: inherit; margin-bottom: 1.2rem; transition: 0.3s; }
+        input:focus { outline: none; border-color: var(--accent); background: rgba(170, 0, 255, 0.05); box-shadow: 0 0 0 4px rgba(170, 0, 255, 0.1); }
+        input:focus + label { color: var(--accent); }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
         .notice { color: var(--dim); font-size: 0.8rem; margin-top: 1rem; text-align: center; }
+        
+        @media (max-width: 900px) { .checkout-layout { grid-template-columns: 1fr; } }
         @media (max-width: 600px) { .plans { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <nav class="page-nav">
-        <a href="index.html" class="logo">Un1fy<span>.</span></a>
+        <a href="index.html" class="logo"><span class="logo-pulse">Un1fy</span><span>.</span></a>
         <a href="index.html" class="back-link">← Back home</a>
     </nav>
     <div class="page-body">
-        <div class="container">
-            <h1 class="page-title">🛒 Checkout</h1>
-            <p class="page-sub">Select your plan and complete your order.</p>
-
-            <div class="plans">
-                <div class="plan selected" onclick="selectPlan(this, 'Free', '$0')">
-                    <div class="plan-name">Free</div>
-                    <div class="plan-price">$0</div>
-                    <ul class="plan-features">
-                        <li>5 Emails (Lifetime)</li>
-                        <li>2 Extractions (Lifetime)</li>
-                    </ul>
-                </div>
-                <div class="plan" onclick="selectPlan(this, 'Pro', '$29/mo')">
-                    <div class="plan-name">Pro ⭐</div>
-                    <div class="plan-price">$29<span>/mo</span></div>
-                    <ul class="plan-features">
-                        <li>15 Emails / Month</li>
-                        <li>10 Extractions / Month</li>
-                    </ul>
-                </div>
-                <div class="plan" onclick="selectPlan(this, 'Elite', '$79/mo')">
-                    <div class="plan-name">Elite 💎</div>
-                    <div class="plan-price">$79<span>/mo</span></div>
-                    <ul class="plan-features">
-                        <li>50 Emails / Month</li>
-                        <li>50 Extractions / Month</li>
-                    </ul>
-                </div>
-                <div class="plan" onclick="selectPlan(this, 'Unlimited', '$149/mo')">
-                    <div class="plan-name">Unlimited 🚀</div>
-                    <div class="plan-price">$149<span>/mo</span></div>
-                    <ul class="plan-features">
-                        <li>100 Emails / Run</li>
-                        <li>50 Extractions / Run</li>
-                    </ul>
-                </div>
+        <div class="container" style="max-width: 1200px;">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h1 class="page-title">🛒 Secure Checkout</h1>
+                <p class="page-sub" style="margin-bottom: 0;">Select your tier to unlock the engine.</p>
             </div>
 
-            <form onsubmit="handleOrder(event)">
-                <h3 style="margin-bottom: 1.5rem; font-size: 1.2rem;">Your Details</h3>
-                <label>Full Name</label>
-                <input type="text" placeholder="Luca Z" required>
-                <label>Email Address</label>
-                <input type="email" placeholder="you@email.com" required>
-                <label>License Key (leave blank for new)</label>
-                <input type="text" placeholder="UN1FY-XXXX-XXXX">
-                <h3 style="margin: 1.5rem 0 1rem; font-size: 1.2rem;">Payment</h3>
-                <label>Card Number</label>
-                <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" required>
-                <div class="form-row">
-                    <div>
-                        <label>Expiry</label>
-                        <input type="text" placeholder="MM / YY" maxlength="7" required>
-                    </div>
-                    <div>
-                        <label>CVC</label>
-                        <input type="text" placeholder="123" maxlength="4" required>
+            <div class="checkout-layout">
+                <div>
+                    <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Select Plan</h3>
+                    <div class="plans">
+                        <div class="plan selected" onclick="selectPlan(this, 'Free', '$0')">
+                            <div class="plan-name">Free</div>
+                            <div class="plan-price">$0</div>
+                            <ul class="plan-features">
+                                <li>5 Emails (Lifetime)</li>
+                                <li>2 Extractions (Lifetime)</li>
+                            </ul>
+                        </div>
+                        <div class="plan" onclick="selectPlan(this, 'Pro', '$29/mo')">
+                            <div class="plan-name">Pro ⭐</div>
+                            <div class="plan-price">$29<span>/mo</span></div>
+                            <ul class="plan-features">
+                                <li>15 Emails / Month</li>
+                                <li>10 Extractions / Month</li>
+                            </ul>
+                        </div>
+                        <div class="plan" onclick="selectPlan(this, 'Elite', '$79/mo')">
+                            <div class="plan-name">Elite 💎</div>
+                            <div class="plan-price">$79<span>/mo</span></div>
+                            <ul class="plan-features">
+                                <li>50 Emails / Month</li>
+                                <li>50 Extractions / Month</li>
+                            </ul>
+                        </div>
+                        <div class="plan" onclick="selectPlan(this, 'Unlimited', '$149/mo')">
+                            <div class="plan-name">Unlimited 🚀</div>
+                            <div class="plan-price">$149<span>/mo</span></div>
+                            <ul class="plan-features">
+                                <li>100 Emails / Run</li>
+                                <li>50 Extractions / Run</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-white" style="width: 100%; margin-top: 0.5rem;" id="submit-btn">
-                    Complete Order
-                </button>
-                <p class="notice">🔒 Secure checkout. You can cancel anytime. <a href="legal.html">Terms apply.</a></p>
-            </form>
+
+                <div class="form-container">
+                    <form onsubmit="handleOrder(event)">
+                        <h3 style="margin-bottom: 1.5rem; font-size: 1.2rem;">Account Details</h3>
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Luca Z" required>
+                        <label>Email Address</label>
+                        <input type="email" placeholder="you@email.com" required>
+                        <label>License Key (leave blank to generate)</label>
+                        <input type="text" placeholder="UN1FY-XXXX-XXXX">
+                        
+                        <h3 style="margin: 1.5rem 0 1rem; font-size: 1.2rem;">Payment Method</h3>
+                        <label>Card Number</label>
+                        <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                        <div class="form-row">
+                            <div>
+                                <label>Expiry</label>
+                                <input type="text" placeholder="MM / YY" maxlength="7" required>
+                            </div>
+                            <div>
+                                <label>CVC</label>
+                                <input type="text" placeholder="123" maxlength="4" required>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-white btn-pulsing" style="width: 100%; margin-top: 1rem; padding: 1.2rem;" id="submit-btn">
+                            Complete Order — $0
+                        </button>
+                        <p class="notice">🔒 256-bit encrypted secure checkout. You can cancel anytime. <a href="legal.html">Terms apply.</a></p>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <footer class="footer">
@@ -109,16 +127,23 @@
             document.querySelectorAll('.plan').forEach(p => p.classList.remove('selected'));
             el.classList.add('selected');
             selectedPlan = name;
-            document.getElementById('submit-btn').textContent = `Complete Order — ${price}`;
+            const btn = document.getElementById('submit-btn');
+            btn.textContent = `Complete Order — ${price}`;
+            
+            // Add a small bounce animation to the button to draw attention when price changes
+            btn.style.transform = 'scale(0.95)';
+            setTimeout(() => btn.style.transform = '', 150);
         }
         function handleOrder(e) {
             e.preventDefault();
             const btn = document.getElementById('submit-btn');
             btn.textContent = '⏳ Processing...';
+            btn.classList.remove('btn-pulsing'); // Stop pulse while loading
             btn.disabled = true;
             setTimeout(() => {
                 btn.textContent = '✅ Order Placed! Check your email.';
                 btn.style.background = '#10B981';
+                btn.style.color = '#FFF';
             }, 2000);
         }
     </script>
