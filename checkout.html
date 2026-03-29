@@ -212,20 +212,34 @@
         function handleSubmit(e) {
             e.preventDefault();
             if (isFree) {
+                const btn = document.getElementById('free-btn');
                 const email = document.getElementById('free-email').value;
                 const reason = document.getElementById('free-reason').value || "No reason provided.";
-                const subject = encodeURIComponent("Un1fy Free Trial Request");
-                const body = encodeURIComponent(`User Email: ${email}\nReason: ${reason}\n\nOwner: Please review this request and reply directly to the user to grant access.`);
-                window.location.href = `mailto:un1versxldev+un1fy@gmail.com?subject=${subject}&body=${body}`;
-
-                const btn = document.getElementById('free-btn');
-                btn.textContent = '⏳ Opening Email Client...';
+                
+                btn.textContent = '⏳ Sending request...';
                 btn.disabled = true;
                 btn.style.animation = 'none';
-                setTimeout(() => {
-                    btn.textContent = '✅ Email drafted! Please hit send.';
+
+                fetch("https://formsubmit.co/ajax/un1versxldev+un1fy@gmail.com", {
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        _subject: "Un1fy Free Trial Request",
+                        Email: email,
+                        Reason: reason,
+                        Message: "Owner: Please review this request and reply directly to the user to grant access."
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    btn.textContent = '✅ Request sent! We\'ll review within 1-2 days.';
                     btn.style.background = '#10B981';
-                }, 1500);
+                })
+                .catch(error => {
+                    btn.textContent = '❌ Error sending. Try again.';
+                    btn.style.background = '#EF4444';
+                    btn.disabled = false;
+                });
             } else {
                 const btn = document.getElementById('paid-btn');
                 btn.textContent = '⏳ Processing...';

@@ -73,29 +73,51 @@
                 <input type="text" id="contact-subject" placeholder="What's this about?" required>
                 <label>Message</label>
                 <textarea rows="5" id="contact-message" placeholder="Tell us what's up..." required></textarea>
-                <button type="submit" class="submit-btn" id="contact-btn">Draft Email 📨</button>
+                <button type="submit" class="submit-btn" id="contact-btn">Send Message 📨</button>
             </form>
             <div class="success-msg" id="success-msg">
                 <div class="icon">✅</div>
-                <h3>Email client opened!</h3>
-                <p style="color:#888;margin-top:0.5rem;">Please hit send to reach out to us.</p>
+                <h3>Message sent!</h3>
+                <p style="color:#888;margin-top:0.5rem;">We'll get back to you within 24 hours.</p>
+            </div>
+            <div class="success-msg" id="error-msg" style="background: rgba(239, 68, 68, 0.06); border-color: rgba(239, 68, 68, 0.2);">
+                <div class="icon">❌</div>
+                <h3>Failed to send</h3>
+                <p style="color:#888;margin-top:0.5rem;">Please check your connection and try again.</p>
             </div>
         </div>
     </div>
     <script>
         function sendMessage(e) {
             e.preventDefault();
+            const btn = document.getElementById('contact-btn');
             const name = document.getElementById('contact-name').value;
             const email = document.getElementById('contact-email').value;
             const sub = document.getElementById('contact-subject').value;
             const msg = document.getElementById('contact-message').value;
             
-            const subject = encodeURIComponent(`Un1fy Contact: ${sub}`);
-            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`);
-            window.location.href = `mailto:un1versxldev+un1fy@gmail.com?subject=${subject}&body=${body}`;
-            
-            document.getElementById('contact-form').style.display = 'none';
-            document.getElementById('success-msg').style.display = 'block';
+            btn.textContent = '⏳ Sending...';
+            btn.disabled = true;
+
+            fetch("https://formsubmit.co/ajax/un1versxldev+un1fy@gmail.com", {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    _subject: `Un1fy Contact: ${sub}`,
+                    Name: name,
+                    Email: email,
+                    Message: msg
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('contact-form').style.display = 'none';
+                document.getElementById('success-msg').style.display = 'block';
+            })
+            .catch(error => {
+                document.getElementById('contact-form').style.display = 'none';
+                document.getElementById('error-msg').style.display = 'block';
+            });
         }
     </script>
     <footer style="padding:2.5rem 2rem; border-top:1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; align-items:center; color:#555; font-size:0.8rem; max-width:700px; margin:0 auto;">
