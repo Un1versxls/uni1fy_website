@@ -205,12 +205,20 @@ h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 800; letter-spacing
     position: relative;
 }
 
-.hero-content h1 { font-size: 6rem; line-height: 0.9; margin-bottom: 2rem; }
-.hero-content h1 span {
-    background: linear-gradient(180deg, var(--fg) 0%, var(--dim) 100%);
+.hero-content h1 { font-size: 6rem; line-height: 0.9; margin-bottom: 2rem; position: relative; }
+.hero-content h1 .text-gradient {
+    background: linear-gradient(45deg, var(--fg), var(--dim), var(--accent), var(--fg));
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 .hero-content p { font-size: 1.3rem; color: var(--dim); margin: 0 auto 3rem; max-width: 500px; }
 
