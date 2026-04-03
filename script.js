@@ -80,33 +80,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 star.className = 'star-effect';
                 effectContainer.appendChild(star);
                 
-                // Trigger animation
-                setTimeout(() => {
+                // Trigger animation with CSS
+                requestAnimationFrame(() => {
                     star.style.opacity = '1';
                     star.style.transform = 'translate(-50%, -50%) rotate(0deg) scale(1.2)';
-                }, 10);
+                });
             } else if (card.querySelector('.tier').textContent.includes('Elite')) {
                 // Gem effect for Elite tier
                 const gem = document.createElement('div');
                 gem.className = 'gem-effect';
                 effectContainer.appendChild(gem);
                 
-                // Trigger animation
-                setTimeout(() => {
+                // Trigger animation with CSS
+                requestAnimationFrame(() => {
                     gem.style.opacity = '1';
                     gem.style.transform = 'translate(-50%, -50%) rotate(180deg) scale(1.1)';
-                }, 10);
+                });
             } else if (card.querySelector('.tier').textContent.includes('Unlimited')) {
                 // Rocket effect for Unlimited tier
                 const rocket = document.createElement('div');
                 rocket.className = 'rocket-effect';
                 effectContainer.appendChild(rocket);
                 
-                // Trigger animation
-                setTimeout(() => {
+                // Trigger animation with CSS
+                requestAnimationFrame(() => {
                     rocket.style.opacity = '1';
                     rocket.style.transform = 'translateX(-50%) translateY(-30px)';
-                }, 10);
+                });
             }
         });
         

@@ -11,6 +11,8 @@ html, body { background: #faf9f6; color: #1a1a1a; }
     --card-bg: #ffffff;
     --shadow: rgba(0, 0, 0, 0.06);
     --shadow-lg: rgba(0, 0, 0, 0.1);
+    --beige: #f8f4e9;
+    --beige-dim: rgba(248, 244, 233, 0.3);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
