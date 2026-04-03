@@ -44,7 +44,7 @@
         input { width: 100%; background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.1); color: #1a1a1a; padding: 0.85rem 1.1rem; border-radius: 10px; font-size: 0.95rem; font-family: inherit; margin-bottom: 1.1rem; transition: 0.25s; box-sizing: border-box; }
         input:focus { outline: none; border-color: var(--accent); background: rgba(201, 168, 124, 0.05); box-shadow: 0 0 0 3px rgba(201, 168, 124, 0.12); }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .submit-btn { width: 100%; margin-top: 0.5rem; padding: 1.1rem; background: var(--accent); color: #1a1a1a; font-family: inherit; font-size: 1rem; font-weight: 700; border: none; border-radius: 12px; cursor: pointer; transition: 0.25s; box-shadow: 0 4px 20px rgba(201, 168, 124, 0.3); animation: btn-pulse 2.5s ease-in-out infinite; }
+        .submit-btn { width: 100%; margin-top: 0.5rem; padding: 1.1rem; background: var(--accent); color: #fff; font-family: inherit; font-size: 1rem; font-weight: 700; border: none; border-radius: 12px; cursor: pointer; transition: 0.25s; box-shadow: 0 4px 20px rgba(201, 168, 124, 0.3); animation: btn-pulse 2.5s ease-in-out infinite; }
         .submit-btn:hover { background: #b8956a; color: #fff; transform: scale(1.02); box-shadow: 0 6px 25px rgba(201, 168, 124, 0.4); }
         .form-note { color: #888; font-size: 0.78rem; text-align: center; margin-top: 0.8rem; line-height: 1.5; }
         .form-note a { color: var(--accent); text-decoration: none; }
@@ -141,9 +141,9 @@
                         <h3>Request Free Trial</h3>
                         <label>Your Email</label>
                         <input type="email" name="email" id="free-email" placeholder="you@email.com" required>
-                        <label>Why do you want access? <span style="color:#6b6b6b;font-size:0.75rem;">(optional)</span></label>
+                        <label>Why do you want access? <span style="color:#888;font-size:0.75rem;">(optional)</span></label>
                         <input type="text" name="reason" id="free-reason" placeholder="e.g. Testing for my agency...">
-                        <button type="submit" class="submit-btn" id="free-btn" style="color: #1a1a1a; background: var(--accent);">Request Free Trial</button>
+                        <button type="submit" class="submit-btn" id="free-btn">📨 Request Free Trial</button>
                         <p class="form-note">✋ Upon submission, you will hear back via email in 1-2 days maximum if your trial is approved.</p>
                     </form>
 
@@ -170,7 +170,7 @@
                                 <input type="text" id="paid-cvc" placeholder="123" maxlength="4">
                             </div>
                         </div>
-                        <button type="submit" class="submit-btn" id="paid-btn" style="color: #1a1a1a;">Complete Order — <span id="price-label">$29/mo</span></button>
+                        <button type="submit" class="submit-btn" id="paid-btn">Complete Order — <span id="price-label">$29/mo</span></button>
                         <p class="form-note">🔒 256-bit encrypted. <a href="legal.html">Terms apply.</a></p>
                     </form>
             </div>

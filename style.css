@@ -205,20 +205,12 @@ h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 800; letter-spacing
     position: relative;
 }
 
-.hero-content h1 { font-size: 6rem; line-height: 0.9; margin-bottom: 2rem; position: relative; }
-.hero-content h1 .text-gradient {
-    background: linear-gradient(45deg, var(--fg), var(--dim), var(--accent), var(--fg));
-    background-size: 200% 200%;
+.hero-content h1 { font-size: 6rem; line-height: 0.9; margin-bottom: 2rem; }
+.hero-content h1 span {
+    background: linear-gradient(180deg, var(--fg) 0%, var(--dim) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradientShift 3s ease infinite;
-}
-
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
 .hero-content p { font-size: 1.3rem; color: var(--dim); margin: 0 auto 3rem; max-width: 500px; }
 
@@ -258,8 +250,6 @@ h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 800; letter-spacing
     gap: 1.2rem;
     padding: 1.5rem;
     margin: -1.5rem;
-    position: relative;
-    z-index: 1;
 }
 
 .pricing-card {
@@ -274,7 +264,6 @@ h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 800; letter-spacing
     position: relative;
     z-index: 1;
     box-shadow: 0 2px 15px var(--shadow);
-    overflow: visible;
 }
 
 .pricing-card:hover {
@@ -284,145 +273,14 @@ h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 800; letter-spacing
     box-shadow: 0 20px 50px var(--shadow-lg);
 }
 
-.pricing-card.featured { 
-    border-color: var(--accent); 
-    box-shadow: 0 4px 25px rgba(201, 168, 124, 0.15);
-}
+.pricing-card.featured { border-color: var(--accent); box-shadow: 0 4px 25px rgba(201, 168, 124, 0.15); }
 
-.pricing-card .effect-container {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 60px;
-    pointer-events: none;
-    z-index: 5;
-}
+.pricing-card .tier { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 800; margin-bottom: 1rem; }
+.price { font-size: 3rem; font-weight: 800; margin-bottom: 2rem; }
+.price span { font-size: 1rem; color: var(--dim); font-weight: 400; }
 
-.pricing-card .star-effect {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    transform: translate(-50%, -50%) rotate(0deg);
-}
-
-.pricing-card .star-effect::before,
-.pricing-card .star-effect::after {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 20px;
-    height: 20px;
-    background: linear-gradient(135deg, var(--accent), #e8d5b7);
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    transform-origin: center;
-    opacity: 0;
-    animation: starPulse 0.6s ease-out forwards;
-}
-
-.pricing-card .star-effect::after {
-    transform: rotate(30deg);
-}
-
-.pricing-card .gem-effect {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 20px;
-    height: 20px;
-    transform: translate(-50%, -50%) rotate(0deg);
-    background: linear-gradient(135deg, var(--accent), #e8d5b7);
-    clip-path: polygon(50% 0%, 60% 20%, 100% 20%, 75% 100%, 25% 100%, 0% 20%, 40% 20%);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    opacity: 0;
-    animation: gemSpin 1s ease-out forwards;
-}
-
-.pricing-card .rocket-effect {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 24px;
-    height: 40px;
-    transform: translateX(-50%);
-    background: linear-gradient(to top, var(--accent), #e8d5b7);
-    border-radius: 4px 4px 2px 2px;
-    opacity: 0;
-}
-
-.pricing-card .rocket-effect::before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 8px solid var(--accent);
-    transform: translateX(-50%);
-}
-
-.pricing-card .rocket-effect::after {
-    content: "";
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    width: 4px;
-    height: 8px;
-    background: var(--accent);
-    transform: translateX(-50%);
-    opacity: 0.7;
-}
-
-@keyframes starPulse {
-    0% { 
-        opacity: 0;
-        transform: translate(-50%, -50%) rotate(0deg) scale(0.5);
-    }
-    50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) rotate(0deg) scale(1.2);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) rotate(0deg) scale(0.8);
-    }
-}
-
-@keyframes gemSpin {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) rotate(0deg) scale(0.5);
-    }
-    50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) rotate(180deg) scale(1.1);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) rotate(360deg) scale(0.8);
-    }
-}
-
-@keyframes rocketLaunch {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(0);
-    }
-    50% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(-30px);
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(-100px);
-    }
-}
+.tier-features { list-style: none; margin-bottom: 2.5rem; }
+.tier-features li { margin-bottom: 0.7rem; color: var(--dim); font-size: 0.9rem; }
 
 /* ── Reveal Animations ── */
 .reveal { opacity: 0; transform: translateY(30px); transition: 1.2s cubic-bezier(0.2, 1, 0.3, 1); }
