@@ -10,13 +10,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-logo">Un1fy</div>
+        <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+        </div>
+        <div class="loading-dots">
+            <div class="loading-dot"></div>
+            <div class="loading-dot"></div>
+            <div class="loading-dot"></div>
+        </div>
+    </div>
+
     <div class="accent-glow" style="top: -10%; right: -5%;"></div>
     <div class="accent-glow" style="bottom: 10%; left: -5%; width: 30vw;"></div>
 
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="logo.png" alt="Un1fy Logo" style="height: 38px; vertical-align: middle;">
                 <span class="logo-pulse">Un1fy</span>
             </a>
             <ul class="nav-links">
@@ -52,6 +64,10 @@
 
     <section id="features" class="features">
         <div class="container">
+            <div class="section-header reveal" style="text-align:center; margin-bottom: 4rem;">
+                <h2 style="font-size: 3.5rem; margin-bottom: 0.5rem;">The Engine</h2>
+                <p style="color: var(--dim);">Every tier unlocks more AI power.</p>
+            </div>
             <div class="feature-grid">
                 <div class="feature-card reveal">
                     <span>01</span>
@@ -67,9 +83,26 @@
                 </div>
                 <div class="feature-card reveal" style="grid-column: span 2;">
                     <span>03</span>
-                    <h3>🔒 Secure Infrastructure</h3>
-                    <p>🛡 Enterprise-grade <strong>HMAC-SHA256 encryption</strong> and machine-locked state. Your licenses, quotas, and automation data are bound to your hardware — tamper-proof and breach-resistant.<br><br>🔑 Every edition comes with a unique, hardware-signed license key. No exceptions.</p>
-                    <div class="magnetic-wrap" style="margin-top: 1.5rem; display: block;"><a href="#pricing" class="btn btn-outline magnetic">Learn More</a></div>
+                    <h3>🤖 AI Model Tiers</h3>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1.5rem;">
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;">
+                            <h4 style="font-family: 'Outfit', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">🆓 Free Model</h4>
+                            <p style="font-size: 0.9rem;">Basic domain scanning only. No AI assistance. Manual pattern matching with fixed confidence threshold.</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;">
+                            <h4 style="font-family: 'Outfit', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">⭐ Pro Model</h4>
+                            <p style="font-size: 0.9rem;">AI-assisted email pattern matching. Basic confidence scoring. Improved discovery rate over free tier.</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;">
+                            <h4 style="font-family: 'Outfit', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">💎 Elite Model</h4>
+                            <p style="font-size: 0.9rem;">Advanced AI email discovery. Multi-source scanning. Bypass pink highlight re-checks. Adjustable confidence slider.</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;">
+                            <h4 style="font-family: 'Outfit', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem;">🚀 Unlimited Model</h4>
+                            <p style="font-size: 0.9rem;">Full AI excavation engine. Excavator V2 with BBB, DuckDuckGo scanning. Unlimited bypass. Email V2 extractor. All confidence levels.</p>
+                        </div>
+                    </div>
+                    <div class="magnetic-wrap" style="margin-top: 1.5rem; display: block;"><a href="#pricing" class="btn btn-outline magnetic">Unlock AI Power</a></div>
                 </div>
             </div>
         </div>
@@ -89,6 +122,7 @@
                         <li>5 Emails (Lifetime)</li>
                         <li>2 Extractions (Lifetime)</li>
                         <li>Full UI Access</li>
+                        <li style="color: var(--dim); font-style: italic; font-size: 0.8rem; margin-top: 0.5rem;">Basic domain scanning — no AI assistance</li>
                     </ul>
                     <a href="checkout.html?plan=free" class="btn btn-outline" style="display:block; text-align:center;">Start Free</a>
                 </div>
@@ -99,6 +133,7 @@
                         <li>15 Emails / Month</li>
                         <li>10 Extractions / Month</li>
                         <li>Monthly Reset</li>
+                        <li style="color: var(--dim); font-style: italic; font-size: 0.8rem; margin-top: 0.5rem;">AI-assisted email pattern matching — basic confidence scoring</li>
                     </ul>
                     <a href="checkout.html?plan=pro" class="btn btn-primary" style="display:block; text-align:center;">Go Pro</a>
                 </div>
@@ -109,6 +144,7 @@
                         <li>50 Emails / Month</li>
                         <li>50 Extractions / Month</li>
                         <li>Priority Access</li>
+                        <li style="color: var(--dim); font-style: italic; font-size: 0.8rem; margin-top: 0.5rem;">Advanced AI email discovery — multi-source scanning, bypass pink highlight, confidence slider</li>
                     </ul>
                     <a href="checkout.html?plan=elite" class="btn btn-outline" style="display:block; text-align:center;">Get Elite</a>
                 </div>
@@ -119,6 +155,40 @@
                         <li>100 Emails / Run</li>
                         <li>50 Extractions / Run</li>
                         <li>No Cooldowns</li>
+                        <li style="color: var(--dim); font-style: italic; font-size: 0.8rem; margin-top: 0.5rem;">Full AI excavation engine — Excavator V2, unlimited bypass, all confidence levels, email V2</li>
+                    </ul>
+                    <a href="checkout.html?plan=unlimited" class="btn btn-outline" style="display:block; text-align:center;">Go Unlimited</a>
+                </div>
+                <div class="pricing-card featured reveal">
+                    <div class="tier">⭐ Pro</div>
+                    <div class="price">$29<span>/mo</span></div>
+                    <ul class="tier-features">
+                        <li>15 Emails / Month</li>
+                        <li>10 Extractions / Month</li>
+                        <li>Monthly Reset</li>
+                        <li style="color: var(--dim); font-style: italic; font-size: 0.8rem; margin-top: 0.5rem;">AI-assisted email pattern matching — basic confidence scoring</li>
+                    </ul>
+                    <a href="checkout.html?plan=pro" class="btn btn-primary" style="display:block; text-align:center;">Go Pro</a>
+                </div>
+                <div class="pricing-card reveal">
+                    <div class="tier">💎 Elite</div>
+                    <div class="price">$79<span>/mo</span></div>
+                    <ul class="tier-features">
+                        <li>50 Emails / Month</li>
+                        <li>50 Extractions / Month</li>
+                        <li>Priority Access</li>
+                        <li style="color: var(--dim); font-style: italic; font-size: 0.8rem; margin-top: 0.5rem;">Advanced AI email discovery — multi-source scanning, bypass pink highlight, confidence slider</li>
+                    </ul>
+                    <a href="checkout.html?plan=elite" class="btn btn-outline" style="display:block; text-align:center;">Get Elite</a>
+                </div>
+                <div class="pricing-card reveal">
+                    <div class="tier">🚀 Unlimited</div>
+                    <div class="price">$149<span>/mo</span></div>
+                    <ul class="tier-features">
+                        <li>100 Emails / Run</li>
+                        <li>50 Extractions / Run</li>
+                        <li>No Cooldowns</li>
+                        <li style="color: var(--dim); font-style: italic; font-size: 0.8rem; margin-top: 0.5rem;">Full AI excavation engine — Excavator V2, unlimited bypass, all confidence levels, email V2</li>
                     </ul>
                     <a href="checkout.html?plan=unlimited" class="btn btn-outline" style="display:block; text-align:center;">Go Unlimited</a>
                 </div>
@@ -139,6 +209,13 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loading-screen').classList.add('hidden');
+            }, 2000);
+        });
+    </script>
     <style>
         #global-toast {
             position: fixed;
