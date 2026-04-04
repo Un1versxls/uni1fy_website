@@ -16,23 +16,7 @@
         .back-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: translateX(-3px); }
         .page-wrap { max-width: 700px; margin: 0 auto; padding: 4rem 2rem 6rem; }
         .page-header { text-align: center; margin-bottom: 3rem; }
-        .page-header h1 { font-family: 'Outfit', sans-serif; font-size: 2.8rem; font-weight: 800; margin-bottom: 0.5rem; position: relative; }
-        .page-header h1::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            border-radius: 2px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .page-header h1:hover::after {
-            opacity: 1;
-        }
+        .page-header h1 { font-family: 'Outfit', sans-serif; font-size: 2.8rem; font-weight: 800; margin-bottom: 0.5rem; }
         .page-header p { color: #6b6b6b; }
         .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2.5rem; }
         .method-card { display: flex; align-items: center; gap: 1rem; background: #ffffff; border: 1px solid var(--border); padding: 1.3rem 1.5rem; border-radius: 16px; transition: 0.25s; cursor: default; box-shadow: 0 2px 12px var(--shadow); }
