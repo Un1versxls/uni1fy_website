@@ -62,4 +62,39 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 5. PRICING CARD HOVER EFFECTS
+    const pricingCards = document.querySelectorAll('.pricing-card');
+    
+    pricingCards.forEach(card => {
+        const effectContainer = card.querySelector('.effect-container');
+        
+        card.addEventListener('mouseenter', () => {
+            // Clear any existing effects
+            effectContainer.innerHTML = '';
+            
+            // Add appropriate effect based on card type
+            if (card.querySelector('.tier').textContent.includes('Pro')) {
+                // Star effect for Pro tier
+                const star = document.createElement('div');
+                star.className = 'star-effect';
+                effectContainer.appendChild(star);
+            } else if (card.querySelector('.tier').textContent.includes('Elite')) {
+                // Gem effect for Elite tier
+                const gem = document.createElement('div');
+                gem.className = 'gem-effect';
+                effectContainer.appendChild(gem);
+            } else if (card.querySelector('.tier').textContent.includes('Unlimited')) {
+                // Rocket effect for Unlimited tier
+                const rocket = document.createElement('div');
+                rocket.className = 'rocket-effect';
+                effectContainer.appendChild(rocket);
+            }
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            // Reset effects
+            effectContainer.innerHTML = '';
+        });
+    });
 });
