@@ -110,9 +110,18 @@ h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 800; letter-spacing
 
 /* ── Animations ── */
 @keyframes logo-breathe {
-    0%, 100% { transform: scale(1); color: var(--accent); }
-    33% { transform: scale(1.05); color: #b8956a; }
-    66% { transform: scale(1.03); color: #d4b896; }
+    0%, 100% { 
+        transform: scale(1); 
+        color: var(--accent);
+    }
+    33% { 
+        transform: scale(1.05); 
+        color: #d4af37; /* Gold color when expanded */
+    }
+    66% { 
+        transform: scale(1.03); 
+        color: #b8956a; 
+    }
 }
 
 .logo-pulse {
@@ -216,50 +225,19 @@ h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 800; letter-spacing
 
 /* Gold gradient shine effect for Outreach text */
 .hero-content h1 .text-gradient {
-    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), transparent);
-    background-size: 200% 100%;
+    background: linear-gradient(90deg, #8b7355 0%, #c9a87c 50%, #8b7355 100%);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shine 3s linear infinite;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    animation: gradient-move 3s linear infinite;
 }
 
-@keyframes shine {
-    0% {
-        background-position: -200% 0;
-    }
-    100% {
-        background-position: 200% 0;
-    }
+@keyframes gradient-move {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
 }
 
-/* Enhanced pulse effect for Un1fy logo */
-.logo-pulse {
-    display: inline-block;
-    animation: logo-breathe 3s ease-in-out infinite;
-    color: var(--accent);
-    transform-origin: center;
-}
-
-@keyframes logo-breathe {
-    0%, 100% { 
-        transform: scale(1); 
-        color: var(--accent);
-    }
-    33% { 
-        transform: scale(1.05); 
-        color: #d4af37; /* Gold color when expanded */
-    }
-    66% { 
-        transform: scale(1.03); 
-        color: #b8956a; 
-    }
-}
 .hero-content p { font-size: 1.3rem; color: var(--dim); margin: 0 auto 3rem; max-width: 500px; }
 
 .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
